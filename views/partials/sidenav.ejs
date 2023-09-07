@@ -1,0 +1,94 @@
+<header id="headnavbar">
+  <nav class="sidenav">
+    <ul id="navbar-list">
+      <li>
+        <button class="dropdown-btn">HTML & CSS<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="/projects/htmlandcss/tribute-page">UMP Leader: Tribute Page</a>
+            <a href="/projects/htmlandcss/ump-form">UMP Inscription Form</a>
+            <a href="/projects/htmlandcss/ump-product-landing-page">UMP Product Landing Page</a>
+            <a href="/projects/htmlandcss/technical-documentation">Technical Documentation</a>
+            <a href="/projects/htmlandcss/arty-portfolio">Arty Portfolio Page</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">Front End<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">Backend & APIs<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">D3.js<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="/projects/d3/bar-chartv1">Federal Reserve Economic Data</a>
+            <a href="/projects/d3/bar-chartv2">US GDP Data</a>
+            <a href="/projects/d3/scatter-plot">TDF: Best Climb Time in Alpes d'Huez</a>
+            <a href="/projects/d3/heatmap">Earth Global Temperature 1753-2015</a>
+            <a href="/projects/d3/choropleth-usa">US Educational Attainment</a>
+            <a href="/projects/d3/treemap">Best Video Game Sales</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">QA - Fullstack<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">Python<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">Information Security - FS<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      <li>
+        <button class="dropdown-btn">Misc<i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-container">
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+            <a href="www.google.com">Google</a>
+          </div>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+<script>
+//* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+} 
+</script>

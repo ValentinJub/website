@@ -4,6 +4,7 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/projects');
+const htmlcssRouter = require('./routes/htmlandcss/index');
 const d3Router = require('./routes/d3/d3');
 
 //used to parse the raw data which contains a lot of metadata 
@@ -37,6 +38,7 @@ app.use(express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/projects', projectRouter);
-app.use('/d3', d3Router);
+app.use('/projects/d3', d3Router);
+app.use('/projects/htmlandcss', htmlcssRouter);
 
 app.listen(process.env.PORT || 3000);

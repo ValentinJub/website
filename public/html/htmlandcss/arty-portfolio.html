@@ -1,0 +1,284 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya&effect=anaglyph">
+        <style>
+            html {
+                font-size: 10px;
+                font-family: 'Alegreya', serif;
+            }
+
+            h1 {
+                font-size: 9rem;
+                margin: 0px 0px;
+                text-align: center;
+            }
+
+            p {
+                margin: 0px 0px;
+            }
+
+            footer {
+                position: relative;
+                width: 100%;
+                height: calc(100vh - 9rem);
+                border-top: solid 4px;
+                margin-top: 10%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: maroon;
+            }
+
+            footer p {
+                font-size: 2rem;
+            }
+
+            #navbar {
+                position: fixed;
+                top: 0;
+                width: 100vw;
+                height: 10vh;
+                min-height: 10vh;
+                background-color: red;
+                color: white;
+            }
+
+            #navbar > ul {
+                list-style-type: none;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            #navbar li {
+                padding: 0px 25px;
+                font-size: 5vh;
+            }
+
+            #navbar a {
+                text-decoration: none;
+                color: white;
+            }
+
+            #navbar a:hover {
+                text-decoration: none;
+                background-color: blue;
+            }
+
+            #welcome-section {
+                background-image: url('https://thumbs.dreamstime.com/b/dark-shadow-hands-body-behind-opaque-glass-makes-look-scary-halloween-concept-shadows-very-168411496.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100vh;
+            }
+
+            #welcome-section > p {
+                font-size: 3rem;
+                font-weight: 200;
+                font-style: italic;
+                color: red;
+            }
+
+            #projects {
+                height: 100vh;
+                width: 100%;
+                background-image: url('https://i.redd.it/mmmvsq24aoj61.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            .projects-tile {
+                width: 100%;
+                padding-top: 25vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            .projects-tile a {
+                text-decoration: none;
+            }
+
+            .projects-tile a:hover {
+                color: red;
+            }
+
+            #tile-sarko {
+                border: 2px solid;
+                background-color: blue;
+            }
+
+            #tile-sarko a{
+                color: red;
+            }
+
+            #tile-sarko a:hover{
+                color: white;
+            }
+
+            #tile-meluche {
+                border: 2px solid;
+                background-color: white;
+            }
+
+            #tile-lepen {
+                border: 2px solid;
+                background-color: red;
+            }
+
+            #tile-lepen a:hover{
+                color: white;
+            }
+
+            #logoSarko {
+                width: 250px;
+                height: 250px;
+            }
+
+            #logoMeluche {
+                width: 250px;
+                height: 250px;
+            }
+
+            #logoMarine {
+                width: 250px;
+                height: 250px;
+            }
+
+            #Contact {
+                height: 100vh;
+                max-height: 100vh;
+                background-color: #CFD8DC;
+                padding-top: 10vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                column-gap: 20px
+            }
+
+            .contact-title {
+                margin-top: 0px;
+                text-align: center;
+            }
+
+            .contact-title > p {
+                color: red;
+                font-size: 2rem;
+            }
+
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+                margin-top: 4rem;
+            }
+
+            .link {
+                display: inline-block;
+                padding: 0px 10px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .link:hover {
+                background-color: grey;
+            }
+
+            @media (max-width: 750px) {
+                #projects {
+                    height: 100vh;
+                    background-color: lime;
+                }
+                
+                .projects-tile {
+                    width: 100%;
+                    height: 70vh;
+                    padding-top: 15vh;
+                    padding-bottom: 15vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                }
+                
+                
+                #logoSarko {
+                    width: 125px;
+                    height: 125px;
+                }
+                
+                #logoMeluche {
+                    width: 125px;
+                    height: 125px;
+                }
+                
+                #logoMarine {
+                    width: 125px;
+                    height: 125px;
+                }
+            }
+        </style>
+		<title>Valentin Portofolio Page</title>
+	</head>
+	<nav id="navbar">
+		<ul>
+			<li><a class="nav-link" href="#welcome-section">About</a></li>
+			<li><a class="nav-link" href="#projects">Work</a></li>
+			<li><a class="nav-link" href="#Contact">Contact</a></li>
+		</ul>
+	</nav>
+	<body>
+		<main>
+			<section id="welcome-section">
+				<h1 class="font-effect-anaglyph">Are you afraid of ███?</h1>
+				<p>a ████ in the making</p>
+			</section>
+			<section id="projects">
+				<div class="projects-tile project-tile">
+					<div id="tile-sarko">
+						<a href="https://codepen.io/ValentinW/pen/gOvOvvX"><img id="logoSarko" src="https://cdn.shopify.com/s/files/1/0680/4947/products/ma1220_masque_carton_nicolas_sarkozy_1024x1024.png?v=1418828411" alt="Sarkozy's head">
+							<p>Nicolas' tribute page</p></a>
+					</div>
+					<div id="tile-meluche">
+						<a href="https://codepen.io/ValentinW/pen/WNMNyQM"><img id="logoMeluche" src="https://risibank.fr/cache/medias/0/1/121/12105/full.png" alt="Meluche's head"><p>Join UMP NOW!!</p>
+						</a>
+					</div>
+					<div id="tile-lepen">
+						<a href="https://codepen.io/ValentinW/pen/yLvYeeN"><img id="logoMarine" src="https://image.noelshack.com/fichiers/2017/18/1493849194-marinepenmalaise.png" alt="Marine's head"><p>Shop UMP</p>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section id="Contact">
+				<div class="contact-title">
+					<h1 class="font-effect-anaglyph">To K██ a █f my █e█</h1>
+					<p>use one of my socials</p>
+				</div>
+				<div class="contact-links">
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="link">█████</a>
+					<a href="https://github.com/ValentinJub/ValentinJub" target="_blank" id="profile-link" class="link">GitHub</a>
+					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQk" target="_blank" class="link">█████</a>
+					<a href="https://codepen.io/ValentinW" target="_blank"class="link">CodePen</a>
+				</div>
+				<footer>
+					<p>This website is part of a █████ project including ████ ██████ of the ██ █████████. ▁ ▂ ▃ ▄ ▆ █ █ ▇ ▅ ▃ ▂ ▁ Do no disclose this website to unauthorised personal. ██████ ██ will ████ █████ be terminated ██ █████.</p>
+				</footer>
+			</section>
+		</main>
+	</body>
+</html>

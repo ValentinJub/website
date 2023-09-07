@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
 router.get('/welcome', function (req, res, next) {
   // ... maybe some additional /bar logging ...
   console.log('%s %s %s', req.method, req.url, req.path)
+  res.locals.title = "Valentin's Portfolio";
   res.render("welcome")
   next()
 })

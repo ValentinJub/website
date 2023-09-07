@@ -1,0 +1,97 @@
+/* Path: public/bootstrap.css */
+
+.sidenav {
+  height: 85vh; /* Full-height: remove this if you want "auto" height */
+  width: 15vw; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #d4d376; /* Light Grey */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+#navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-btn-size-lg {
+    padding: 10px 16px;
+    font-size: 28px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* This ensures the container takes at least the full viewport height */
+}
+
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Set the height to the full viewport height */
+}
+
+footer {
+    height: 15vh;
+    margin-top: auto; /* Push the footer to the bottom */
+    text-align: right;
+    background-color: #f0f0f0; /* Optional: Add background color to the footer */
+    padding: 20px;
+  }
+  
+footer > p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    margin-right: 80px;
+  }
+  
+footer > a {
+    text-decoration: none;
+  }
+

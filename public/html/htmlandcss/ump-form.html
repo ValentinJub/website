@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+		<title>Inscription form for the Union for a Popular Movement French political party</title>
+        <style>
+            html {
+                font-size: 10px;
+                background-image: url(https://atlantico-media.s3.eu-west-3.amazonaws.com/rtr3ayoj_4d1c3e80d1.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                color: white;
+                font-family: 'Koolen', monospace;
+            }
+
+            main {
+                height: 100vh;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            label {
+                display: flex;
+            }
+
+            .div-form {
+                background-color: rgba(27, 35, 93, 0.8);
+                margin: 10px auto;
+                padding: 20px 20px;
+                width: 50%;
+                border-radius: 12px;
+            }
+
+            .posession-div {
+                margin-bottom: 10px;;
+            }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .input-radio,
+            .input-checkbox,
+            .checkbox-label, 
+            .radio-label {
+                display: inline-block;
+                margin-right: 0.5rem;
+            }
+
+            .input-text {
+                border: 2px solid;
+                border-color: purple;
+                border-radius: 0.5em;
+            }
+
+            .submit {
+                font-size: 1.5rem;
+                border-width: 0px;
+                border-radius: 1rem;
+                background-color: purple;
+                color: #E0E0E0;
+            }
+
+            .submit:hover {
+                background-color: blue;
+            }
+
+            .radio-div {
+                display: flex;
+                align-content: center;
+            }
+        </style>
+	</head>
+	<body>
+		<main>
+			<h1 id="title">UMP's Inscription Form</h1>
+			<!-- description of the page -->
+			<p id="description"><em>Please fill the form below and submit it for your application to be reviewed.</em></p>
+			<!-- contains the form -->
+			<div class="div-form">
+				<form id="survey-form" class="form">
+					<label id="name-label" for="name">Name</label>
+						<input id="name" class="input-text" type="text" placeholder="Enter your name" required>
+					<label id="number-label" for="number">Age</label>
+						<input id="number" class="input-text" type="number" placeholder="Enter your age" min="18" max="99" required>
+					<label id="email-label" for="email">Email</label>
+						<input id="email" class="input-text" type="email" placeholder="Enter your email address" required>
+					<label id="address-label" for="address">Address</label>
+						<input id="address" class="input-text" type="text" placeholder="Enter the 1st line of your address" required>
+					<label id="postcode-label" for="postcode">Postcode</label>
+					<input id="postcode" class="input-text" type="text" placeholder="Enter your postcode" required>
+					<div class="posession-div">
+					<p>You own:
+						<label for="car" class="checkbox-label">
+							<input id="car" class="input-checkbox" type="checkbox" name="owns" value="car">Car</label>
+						<label for="house" class="checkbox-label">
+							<input id="house" class="input-checkbox" type="checkbox" name="owns" value="house">House</label>
+					<label for="helicopter" class="checkbox-label">
+						<input id="helicopter" class="input-checkbox" type="checkbox" name="owns" value="helicopter">Helicopter</label>
+					</p>
+					</div>
+					<label id="candidate-label" for="dropdown">Who would you vote for?</label>
+					<select id="dropdown">
+						<option disabled selected value>Select an option</option>
+						<option value="nicolas-sarkozy">Nicolas Sarkozy</option>
+						<option value="francois-fillon">Francois Fillon</option>
+						<option value="rachida-dati">Rachida Dati</option>
+						<option value="nkm">Nathalie Kosusko Morizet</option>
+					</select>
+					<textarea  class="input-text" placeholder="Reasons for joining UMP" rows="4" required></textarea>
+					<br>
+					<div class="radio-div">
+						<p>Have you answered with honesty?
+						<label for="yes" class="radio-label">
+							<input id="yes" class="input-radio" type="radio" name="r-u-sure" value="yes">Yes
+						</label>
+						<label for="no" class="radio-label">
+							<input id="no" class="input-radio" type="radio" name="r-u-sure" value="no">No
+						</label>
+						</p>
+					</div>
+					<br>
+					<button type="submit" id="submit" class="submit">Submit</button>
+				</form>
+			</div>
+		</main>
+	</body>
+</html>

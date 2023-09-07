@@ -1,0 +1,338 @@
+<!-- if media is smaller then 300 - remove a and put link in img -->
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap" rel="stylesheet">
+        <title>UMP's shop 2022</title>
+        <style>
+            :root {
+                font-size: 10px;
+                text-align: center;
+                font-family: 'Slabo 13px';
+                color: white;
+            }
+
+            body {
+                margin-top: 100px;
+            }
+
+            html {
+                background: linear-gradient(45deg, purple, blue, rgb(220, 0, 255));
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+
+            h3 {
+                font-size: 2.25rem;
+            }
+
+            a {
+                font-size: 2rem;
+            }
+
+            .mission {
+                margin: 0px auto;
+                width: 70%;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            #nav-bar {
+                position: fixed;
+                top: 0;
+                background: linear-gradient(45deg, red, pink, rgb(23, 0, 255));
+                color: white;
+                width: 100%;
+                height: 100px;
+                max-width: 100%;
+                display: grid;
+                grid-template-columns: 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 10px;
+                align-items: center;
+                border-radius: 1em;
+            }
+
+            #nav-bar a {
+                text-decoration: none;
+                color: white;
+            }
+
+            @media (max-width: 887px) {
+                #nav-bar {
+                    position: fixed;
+                    top: 0;
+                    background-color: #000033;
+                    color: white;
+                    width: 100%;
+                    height: 150px;
+                    max-width: 100%;
+                    display: grid;
+                    grid-template-columns: 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr;
+                    grid-template-rows: 1fr;
+                    grid-column-gap: 10px;
+                    align-items: center;
+                }
+                
+                body {
+                    margin-top: 150px;
+                }
+            }
+
+            @media (max-width: 700px) {
+                #nav-bar {
+                    position: absolute;
+                    top: 0;
+                    background-color: #000033;
+                    color: white;
+                    width: 100%;
+                    height: auto;
+                    max-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                body {
+                    margin-top: 380px;
+                }
+                
+            }
+
+            .nav-bar a {
+                color: white;
+            }
+
+
+            .nav-bar a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .logoSarko {
+                width: 50px;
+                height: auto;
+                grid-column: 1/2;
+            }
+
+            .logoUMP {
+                width: 50px;
+                height: auto;
+                grid-column: 3/4;
+            }
+
+            .logoCart {
+                width: 50px;
+                height: auto;
+                grid-column: 5/6;
+            }
+
+            .logoMail {
+                width: 50px;
+                height: auto;
+                grid-column: 7/8;
+            }
+
+            .item1 {
+                grid-column: 2/3;
+                justify-self: start;
+            }
+
+            .item2 {
+                grid-column: 4/5;
+                justify-self: start;
+            }
+
+            .item3 {
+                grid-column: 6/7;
+                justify-self: start;
+            }
+
+            .item4 {
+                grid-column: 8/9;
+                justify-self: start;
+            }
+
+            .products {
+                display: grid;
+                grid-template-columns: 0.5fr 2fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-column-gap: 10px;
+                align-items: center;
+            }
+
+            .products p {
+                font-size: 1.5rem;
+            }
+
+            .products button {
+                color: white;
+                background-color: red;
+                border-radius: 1em;
+                border-width: 0px;
+            }
+
+            .products button:hover {
+                color: red;
+                background-color: white;
+                border-radius: 1em;
+                border-width: 0px;
+            }
+
+            .nkm {
+                grid-column: 1/2;
+            }
+
+            .jfc {
+                grid-column: 1/2;
+            }
+
+            .ddv {
+                grid-column: 1/2;
+            }
+
+            .rd {
+                grid-column: 1/2;
+            }
+
+            .nkmFiche {
+                grid-column: 2/4;
+            }
+
+            .jfcFiche {
+                grid-column: 2/4;
+            }
+
+            .ddvFiche {
+                grid-column: 2/4;
+            }
+
+            .rdFiche {
+                grid-column: 2/4;
+            }
+
+            footer {
+                margin-top: 30px;
+                background: linear-gradient(45deg, blue, purple, rgba(220, 0, 255, 0.11));
+                padding: 20px;
+                border-radius: 1em;
+            }
+
+            footer ul {
+                display: flex;
+                justify-content: flex-start;
+                list-style-type: none;
+                margin-left: -50px;
+            }
+
+            footer li {
+                padding: 0 10px;
+            }
+
+            footer a {
+                color: inherit;
+            }
+
+            footer span {
+                margin-top: 6px;
+                padding-right: 5px;
+                font-size: 1.5rem;
+                color: inherit;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            #email {
+                border-radius: .5em;
+            }
+        </style>
+	</head>
+	<body>
+		<header id="header">
+			<nav id="nav-bar">
+					<img class="logoSarko" id="header-img" src="https://cdn.shopify.com/s/files/1/0680/4947/products/ma1220_masque_carton_nicolas_sarkozy_1024x1024.png?v=1418828411" alt="Shop's logo representing Nicolas Sarkozy's smiling eyeless head">
+					<h1 class="item1">UMP Shop 2022</h1>
+					<img class="logoUMP" src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/90/Logo_de_l%27UMP.svg/langfr-1280px-Logo_de_l%27UMP.svg.png" alt="UMPS's logo">
+					<a class="nav-link item2" href="#mission">Our mission</a>
+					<img class="logoCart" src="https://cdn.iconscout.com/icon/free/png-256/shopping-trolley-2130858-1794989.png" alt="cart logo">
+					<a class="nav-link item3" href="#products">Explore our range</a>
+					<img class="logoMail" src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Mail-512.png" alt="mail logo">
+					<a class="nav-link item4" href="#subscribe">Subscribe to our offers!</a>
+			</nav>
+		</header>
+		<!-- main content excluding footer and header -->
+		<main>
+			<h2 class="top">At UMP we pride ourselves to be richer than you</h2>
+			<section id="mission">
+				<div class="mission">
+					<p>The doctrine of the UMP declares that it is necessary to give free rein to the "individual destiny of the person" which goes beyond "social determinism". The UMP "rejects systems that stifle (economic) freedom by trying to control everything". Work, merit and innovation must be encouraged in order to lead France towards renewed growth and lower unemployment. However, this freedom should not be understood as selfishness: "Freedom opens the way to generosity". To ensure that this freedom is respected, strict respect for the law is necessary: "The authority of the State and the justice system must ensure that everyone is accountable for their actions.</p>
+						
+					<p>The UMP declares itself very attached to solidarity: "the State is there to guarantee the social protection to which the French are legitimately attached". Nevertheless, solidarity must "respect the individual" and "not (...) turn into assistance". It is essentially limited to the fields of public services, equality between territories, support for families and the school of the Republic, which must "allow those who are distinguished by their merits, to exercise the highest responsibilities".</p>
+					<iframe
+						id="video"
+						height="315"
+						src="https://www.youtube-nocookie.com/embed/95unm3OVahw"
+						frameborder="0"
+						allowfullscreen
+					></iframe>
+				</div>
+			</section>
+			<section id="products">
+				<div class="products">
+					<img class="nkm" src="https://www.politiquemedia.com/images/photos/medaillons/9.png" alt="Nathalie Kosciuscko Morizet">
+					<div class="nkmFiche">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius imperdiet luctus. Nunc suscipit, ipsum et bibendum fermentum, est urna consectetur magna, et vulputate odio lacus sit amet sapien. Donec ullamcorper feugiat quam. Praesent rutrum sem non felis feugiat interdum vitae in lectus. Proin egestas augue quam, vel ultrices sapien varius id. Vestibulum eu nulla diam. Morbi risus nibh, tincidunt ac velit quis, porta porttitor ipsum.</p>
+						<button type="button">Buy Nathalie</button>
+					</div>
+					<img class="jfc" src="https://euroopen.ast.social/images/Ocenki/PublicFigures/France/CopeJF.png" alt="Jean-Francois Cope">
+					<div class="jfcFiche">
+						<p>Nam nibh massa, tempor at feugiat in, egestas eu eros. Curabitur elementum sit amet libero et gravida. Vestibulum vitae sapien sapien. Curabitur commodo orci sed tincidunt vehicula. Nulla id mattis justo. Curabitur a mi aliquam ligula sodales laoreet. Ut aliquam ac nulla at placerat. Cras non nibh vel mauris sollicitudin congue. Aliquam id iaculis velit. Aliquam erat volutpat. Cras suscipit placerat metus, vel varius nulla vestibulum ut. Vivamus ut lacus nunc. Etiam eget commodo nulla. Integer porttitor, quam nec semper hendrerit, nisl lorem tempus metus, vitae vulputate ante lectus id quam. Sed finibus finibus vestibulum.</p>
+						<button type="button">Buy JF</button>
+					</div>
+					<img class="ddv" src="https://www.santander.com/content/dam/santander-com/es/contenido-paginas/sala-de-comunicaci%C3%B3n/scib/biografias/dominique-de-villepin-2020.png" alt="Dominique De Vilepin">
+					<div class="ddvFiche">
+						<p>Vivamus pulvinar mauris sed mi imperdiet luctus. Ut consequat sagittis massa ac ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi cursus laoreet nisl, at elementum eros tempor sed. Sed in dignissim magna. Nunc tempor mauris ut mauris rutrum, eget finibus erat fringilla. Vivamus mattis nunc pretium est pulvinar, aliquam dictum lectus lacinia. Cras commodo turpis in tellus interdum, vel ornare leo iaculis. Vestibulum dapibus vestibulum velit eget sodales. Pellentesque eu consectetur ligula, et mollis lorem.</p>
+						<button type="button">Buy Dominique</button>
+					</div>
+					<img class="rd" src="https://www.politiquemedia.com/images/photos/medaillons/134.png" alt="Rachida Dati">
+					<div class="rdFiche">
+						<p>Donec blandit interdum porta. Ut porttitor posuere tellus, vitae vehicula metus dapibus eget. Donec sed hendrerit ex. Aenean convallis posuere tristique. Quisque a purus ut odio lacinia suscipit. Praesent at mauris ac felis molestie congue. Praesent facilisis mauris ut interdum finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse lacinia leo ut tincidunt vestibulum. Nunc fermentum massa nisi. Proin tempor scelerisque nulla a tincidunt. Duis ullamcorper turpis eget consequat volutpat.</p>
+						<button type="button">Buy Rachida</button>
+					</div>
+				</div>
+			</section>
+			<section id="subscribe">
+				<div class="subscribe">
+					<h2>Don't miss out on UMP's finest news!</h2>
+					<form id="form" action="https://www.freecodecamp.com/email-submit" method="get">
+						<input id="email" name="email" type="email" placeholder="Type your email" required>
+						<button id="submit" type="submit">Subscribe</button>
+					</form>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<ul>
+				<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="#_blank">Privacy</a></li>
+				<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="#_blank">Terms</a></li>
+				<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="#_blank">Contact</a></li>
+			</ul>
+			<span>Copyright 2022, CTRLCV</span>
+		</footer>
+	</body>
+</html>
