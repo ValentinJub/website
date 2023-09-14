@@ -1,3 +1,5 @@
+'use strict'
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
@@ -6,6 +8,8 @@ const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/projects');
 const htmlcssRouter = require('./routes/htmlandcss/index');
 const d3Router = require('./routes/d3/d3');
+const frontendRouter = require('./routes/frontend/frontend-index');
+const backendTimestampRouter = require('./routes/backend/timestampRoute');
 
 //used to parse the raw data which contains a lot of metadata 
 //of the POST request to only extract the data we want
@@ -24,7 +28,12 @@ app.set('views, __dirname + /views');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 //we set the public folder to the public folder
-app.use(express.static('public'));
+app.use(express.static('public', {
+    index: false, 
+    immutable: true, 
+    cacheControl: true,
+    maxAge: "30d"
+}));
 
 // const mongoose = require('mongoose');
 
@@ -40,5 +49,7 @@ app.use('/', indexRouter);
 app.use('/projects', projectRouter);
 app.use('/projects/d3', d3Router);
 app.use('/projects/htmlandcss', htmlcssRouter);
+app.use('/projects/frontend', frontendRouter);
+app.use('/projects/backend/timestamp', backendTimestampRouter);
 
 app.listen(process.env.PORT || 3000);
