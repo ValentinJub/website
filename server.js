@@ -10,6 +10,7 @@ const htmlcssRouter = require('./routes/htmlandcss/index');
 const d3Router = require('./routes/d3/d3');
 const frontendRouter = require('./routes/frontend/frontend-index');
 const backendTimestampRouter = require('./routes/backend/timestampRoute');
+const backendHeaderParserRouter = require('./routes/backend/headerParserRoute');
 
 //used to parse the raw data which contains a lot of metadata 
 //of the POST request to only extract the data we want
@@ -51,5 +52,6 @@ app.use('/projects/d3', d3Router);
 app.use('/projects/htmlandcss', htmlcssRouter);
 app.use('/projects/frontend', frontendRouter);
 app.use('/projects/backend/timestamp', backendTimestampRouter);
+app.use('/projects/backend/header-parser', backendHeaderParserRouter);
 
 app.listen(process.env.PORT || 3000);

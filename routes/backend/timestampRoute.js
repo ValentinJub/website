@@ -29,12 +29,6 @@ router.get("/", function (req, res) {
   });
 });
 
-
-// your first API endpoint... 
-router.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
-});
-
 router.get("/api/:date?", (req, res) => {
   const unixRegex = /^[0-9]+$/;
   let dateEntered = req.params.date;
