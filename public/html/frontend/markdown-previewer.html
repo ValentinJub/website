@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <title>Markdown Previewer</title>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.17/marked.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <style>
+            /*
+            Index.css for markdown prev
+            */
+
+            :root {
+            --cyan-color:#61edb0;
+            --matcha-color:#8bed61;
+            --orange-color:#e0ab19;
+            }
+
+            html {
+            font-size: 10px;
+            font-family: hack;
+            background-color: var(--orange-color);
+            }
+
+            #wrapper {
+            font-size: 1.5rem;
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 100vh;
+            min-width: 100vw;
+            
+            }
+
+            .header {
+            font-family: hack-bold;
+            border: 2px solid black;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            min-height: 2vh;
+            }
+
+            #markdown {
+            background-color: var(--cyan-color);
+            min-width: 33vw;
+            min-height: 20vh;
+            max-width: 98vw;
+            border: 2px solid black;
+            border-radius: 0.2em;
+            }
+
+            #editor {
+            min-width: inherit;
+            max-width: inherit;
+            border: 2px solid black;
+            margin-bottom: -5px;
+            min-height: 18vh;
+            }
+
+            #results {
+            border: 2px solid black;
+            border-radius: 0.2em;
+            background-color: var(--matcha-color);
+            min-width: 33vw;
+            max-width: 98vw;
+            }
+
+            #preview {
+            border: 2px solid black;
+            
+            margin-bottom: 0px;
+            min-width: 33vw;
+            min-height: 10vh;
+            max-width: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            marked.setOptions({
+            gfm: true,
+            breaks: true,
+            });
+
+            class Markdown extends React.Component {
+            render() {
+                return (
+                <div id="markdown">
+                    <p className="header">Markdown Formatting Input</p>
+                    <textarea 
+                    id="editor"
+                    value={this.props.value}
+                    onChange={this.props.sendInput}
+                    ></textarea>
+                </div>
+                )
+            }
+            }
+
+            class Preview extends React.Component {
+            render() {
+                return (
+                    <div id="results">
+                    <p className="header">Markdown Formated Output</p>
+                    <MarkdownExample output={this.props.output} />
+                    </div>
+                )
+            }
+            }
+
+            class MarkdownExample extends React.Component {
+            getMarkdownText() {
+                var rawMarkup = marked.parse(this.props.output);
+                return { __html: rawMarkup };
+            }
+            render() {
+                return <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()} />;
+            }
+            }
+
+            class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                input: 
+            `# Welcome to my Markdown Previewer
+            ## This short demo showcases the power of marked library.
+
+            Click if you want to learn more about [Marked](https://marked.js.org/#usage) and its usage.
+
+            I can create ordered lists:
+
+            1. First item
+            2. Second item
+            3. Third item
+
+            But also un-ordered lists:
+
+            - I'm first
+            - I'm second
+            - I'm third
+
+            If you feel adventurous you can even create a list containing lists! Example:
+
+            1. First item 
+            - I'm first's 1st
+            - I'm first's second
+            2. Second item
+            - Second's first!
+                - Second's first's first!
+                - Okay that's probably enough now..
+            3. Third item
+            - I'm first
+            - I'm second
+
+            > Here's a quote from a great thinker: *'I think* **therefore** *I am'*
+
+            I recently created a *'complex'* regEx algorithm that checks if a US phone number is valid, I though I'd share it here:\n
+            \`const complexRegEx = /^(1[\s-(]?)?(\(\d{3}\)|\d{3})[\s-]?\s?\d{3}[\s-]?\d{4}$/\`
+            \`\`\`
+            function telephoneCheck(str) {
+            return /^(1[\s-(]?)?(\(\d{3}\)|\d{3})[\s-]?\s?\d{3}[\s-]?\d{4}$/.test(str);
+            }
+            \`\`\`
+            I have to end this preview on an image, hope y'all like it
+            ![banner](https://images.twinkl.co.uk/tr/image/upload/t_illustration/illustation/banner.png)`
+                }
+                this.getInput = this.getInput.bind(this); 
+            }
+            
+            getInput(e) {
+                this.setState({input: e.target.value});
+            }
+            
+            render() {
+                return (
+                <div id="wrapper">
+                    <Markdown 
+                    value={this.state.input}
+                    sendInput={this.getInput}/>
+                    <Preview output={this.state.input}/>
+                </div>
+                )
+            }
+            }
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<App />);
+        </script>
+    </body>
+</html>

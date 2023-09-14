@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <title>Random Quote Machine</title>
+        <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <style>
+            html {
+            font-size: 20px;
+            }
+
+            #foot {
+            color: white;
+            }
+
+            #me {
+            color: hotpink;
+            text-decoration: none;
+            }
+
+            #me:hover {
+            color: red;
+            text-decoration: none;
+            cursor: crosshair;
+            }
+
+            .UI {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(
+                circle,
+                rgba(238, 174, 202, 1) 0%,
+                rgba(101, 149, 162, 1) 11%,
+                rgba(26, 13, 31, 1) 46%,
+                rgba(148, 187, 233, 1) 75%
+            );
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            min-width: 100vw;
+
+            font-family: "Slabo 13px", serif;
+            }
+
+            .box {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+
+            background-color: silver;
+
+            max-width: 75vw;
+            min-width: 50vw;
+            height: 50vh;
+
+            border-radius: 12px;
+            box-shadow: 6px 9px 18px 12px #000000;
+
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            }
+
+            @media(max-height: 600px) , (max-width: 600px) {
+            .box {
+                height: 70vh;
+                font-size: 25px
+            }
+            p {
+                margin-top: -10px;
+                margin-bottom: -10px;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel"> 
+            const Quotes = [
+                {author: 'Frank Zappa',
+                quote: 'So many books, so little time'},
+                {author: 'Oscar wild',
+                quote: 'Be yourself; everyone else is already taken'},
+                {author: 'Albert Einstein',
+                quote: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe"},
+                {author: 'Marcus Tullius Cicero',
+                quote: 'A room without books is like a body without a soul'},
+                {author: 'Bernard M. Baruch',
+                quote: "Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind"},
+                {author: 'Mae West',
+                quote: 'You only live once, but if you do it right, once is enough'},
+                {author: 'Mahatma Gandhi',
+                quote: 'Be the change that you wish to see in the world'},
+                {author: 'Mark Twain',
+                quote: "If you tell the truth, you don't have to remember anything"}
+            ];
+
+
+            class UI extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                rand: 0,
+                quoteStyle: {}
+                }
+            }
+            render() {
+                const authors = Quotes.map((x) => x.author);
+                const quotes = Quotes.map((x) => x.quote);
+                let quoteStyle = {};
+                if(Quotes[this.state.rand]["quote"].length > 75) {
+                quoteStyle = {
+                    fontSize: "20px"
+                }
+                }
+                return (
+                <div className="container UI">
+                    <div className="box" id="quote-box">
+                        <p id="text"
+                        style={quoteStyle}>"{quotes[this.state.rand]}"
+                        </p>
+                        <p id="author"><em>-{authors[this.state.rand]}-</em></p>
+                        <div id="buttons">
+                        <button onClick={() => {
+                            const rand = Math.floor(Math.random() * Quotes.length);
+                            
+                            return this.setState({rand:rand});
+                            }}
+                            type="button"
+                            className="btn btn-primary"
+                            id="new-quote"
+                        >Random quote!</button>
+                        <a id="tweet-quote" className="btn btn-warning" href="https://www.twitter.com/intent/tweet" target="_blank"><i className="fa-brands fa-twitter"></i>Tweet it!</a>
+                        </div>
+                    </div>
+                    <br/>
+                    <p id="foot">Made by <a id="me" href="https://codepen.io/ValentinW" target="_blank">Valentin Wissler</a></p>
+                </div>
+                )
+            }
+            }
+
+            class App extends React.Component {
+            render() {
+                return (
+                <UI />
+                )
+            }
+            }
+
+            //display react content to the page
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render(<App />);
+        </script>
+    </body>
+</html>
