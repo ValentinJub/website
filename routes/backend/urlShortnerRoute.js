@@ -37,7 +37,11 @@ router.get("/", function (req, res) {
 });
 
 //we connect to our DB using .env VAR
-mongoose.connect(process.env.URLSHORTNER_MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+// https://mongoosejs.com/docs/connections.html#multiple_connections
+
+const conn = mongoose.createConnection(process.env.URLSHORTNER_MONGO_URI, 
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => {return console.log('Connected to MongoDB on URL Shortner')});
 
 //we need to create a schema that holds the shortkey and the link
 const urlSchema = new mongoose.Schema({
@@ -46,7 +50,7 @@ const urlSchema = new mongoose.Schema({
 });
 
 //creates a model from schema, mdels are fancy constructors 
-let URL = mongoose.model('URL', urlSchema);
+let URL = conn.model('URL', urlSchema);
 
 
 //create one that queries by url

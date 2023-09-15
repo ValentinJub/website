@@ -12,6 +12,9 @@ const frontendRouter = require('./routes/frontend/frontend-index');
 const backendTimestampRouter = require('./routes/backend/timestampRoute');
 const backendHeaderParserRouter = require('./routes/backend/headerParserRoute');
 const backendUrlShortnerRouter = require('./routes/backend/urlShortnerRoute');
+const backendExerciseTrackerRouter = require('./routes/backend/exerciseTrackerRoute');
+
+
 
 //used to parse the raw data which contains a lot of metadata 
 //of the POST request to only extract the data we want
@@ -55,5 +58,8 @@ app.use('/projects/frontend', frontendRouter);
 app.use('/projects/backend/timestamp', backendTimestampRouter);
 app.use('/projects/backend/header-parser', backendHeaderParserRouter);
 app.use('/projects/backend/url-shortner', backendUrlShortnerRouter);
+app.use('/projects/backend/exercise-tracker', backendExerciseTrackerRouter);
+
+
 
 app.listen(process.env.PORT || 3000);
