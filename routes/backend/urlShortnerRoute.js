@@ -7,9 +7,6 @@ require('dotenv').config();
 //used for the db
 const mongoose = require('mongoose');
 
-//used for dns.lookup()
-const dns = require('dns');
-
 
 // http://expressjs.com/en/starter/basic-routing.html
 router.get("/", function (req, res) {
