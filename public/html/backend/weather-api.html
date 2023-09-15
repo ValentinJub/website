@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="/css/backend/weather-api.css">  
+  <title>Weather API</title>
+</head>
+<body>
+  <section class="vh-100 vw-100">
+    <div class="container h-100 w-100">
+      <h1 class="display-1">Weather API</h1>
+      <div class="d-flex flex-column align-items-center justify-content-center h-100">
+        <div id="result"></div>
+        <button id="toc" class="btn btn-info">To °C</button>
+        <button id="tof" class="btn btn-info">To °F</button>
+        <button class="btn btn-primary" id="getWeatherBtn">Get current location weather</button>      
+        <span id="error" class="text-danger"></span>
+        <!-- <form id="townForm">
+          <div class="form-group">
+            <label for="town">Town</label>
+            <input required type="text" class="form-control" id="town" name="town" aria-describedby="town value" placeholder="Enter town">
+            <small id="townHelp" class="form-text text-muted">Look for the weather anywhere!</small>
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+          </div>
+        </form> -->
+        <form id="locationForm">
+          <div class="form-group">
+            <label for="latitude">Latitude</label>
+            <input required type="text" class="form-control" id="latitude" name="lat" aria-describedby="latitude value" placeholder="Enter latitude">
+            <label for="longitude">Longitude</label>
+            <input required type="text" class="form-control" id="longitude" name="lon" aria-describedby="longitude value" placeholder="Enter longitude">
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  <footer>
+    <p>
+      Made with love a Sunday afternoon on the 7th of May 23 by
+      <br>
+      Valentin Wissler
+      <br>
+      <a target="_blank" href="https://github.com/ValentinJub">🔥 Visit my Github 🔥</a>
+      <a target="_blank" href="https://codepen.io/ValentinW">🔥 Visit my Codepen 🔥</a>
+    </p>
+  </footer>
+  </section>
+ <script src="../../js/weather-api.js"></script>
+ </script>
+</body>
+</html>

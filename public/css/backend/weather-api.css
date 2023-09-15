@@ -1,0 +1,59 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+  }
+  
+  #tof, #toc {
+    display: none;
+    margin: 10px;
+  }
+  
+  #townForm, #locationForm {
+    text-align: center; /* Center horizontally */
+    display: flex; /* Optional: center vertically */
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 3px outset #c2caca;
+    border-radius: 12px 0px 30px 30px;
+    background-color: #e5e6e6;
+  }
+  
+  .submit {
+    margin-top: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 700;
+  }
+  
+  #result {
+    display: none;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 3px outset #c2caca;
+    border-radius: 12px 0px 30px 30px;
+    background-color: #e5e6e6;
+  }
+  
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-weight: 700;
+    background-color: #e5e6e6;
+    border-top: 3px solid black;
+  }
+  
+  footer > p {
+    margin-right: 80px;
+  }
+  
+  footer > a {
+    text-decoration: none;
+  }

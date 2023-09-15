@@ -15,6 +15,7 @@ const backendHeaderParserRouter = require('./routes/backend/headerParserRoute');
 const backendUrlShortnerRouter = require('./routes/backend/urlShortnerRoute');
 const backendExerciseTrackerRouter = require('./routes/backend/exerciseTrackerRoute');
 const backendFileMetadataRouter = require('./routes/backend/fileMetadataRoute');
+const backendWeatherApiRouter = require('./routes/backend/weatherApiRoute');
 
 
 
@@ -69,6 +70,7 @@ app.use('/projects/backend/header-parser', backendHeaderParserRouter);
 app.use('/projects/backend/url-shortner', backendUrlShortnerRouter);
 app.use('/projects/backend/exercise-tracker', backendExerciseTrackerRouter);
 app.use('/projects/backend/file-metadata', backendFileMetadataRouter);
+app.use('/projects/backend/weather-api', backendWeatherApiRouter);
 
 
 
