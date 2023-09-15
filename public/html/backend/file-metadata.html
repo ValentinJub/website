@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <title>File Metadata</title>
+      <link rel="shortcut icon" href="https://preview.redd.it/quch0lcijir91.png?width=640&crop=smart&auto=webp&s=9ac25854cc1492966d6058cfcf55f5e0eb7c2990" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="/css/backend/file-metadata.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+      <div class="container">
+        <h2 id="main_title">API Project: File Metadata Microservice</h2>
+
+        <h3>Upload a file and I'll tell you more about its metadata...</h3>
+        
+        <img id="genius" src="https://en.akinator.com/bundles/elokencesite/images/akitudes_670x1096/defi.png?v94" alt="A genius coming out of a lamp gazing at you">
+
+        <div class="view">
+          <form enctype="multipart/form-data" method="POST" action="/projects/backend/file-metadata/api/fileanalyse">
+            <label id="button1" class="myButton"> Choose a file
+              <input id="inputfield" type="file" name="upfile">
+            </label>
+            <input id="button2" class="myButton" type="submit" value="Upload">
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        <p>
+          by 
+          <a href="https://codepen.io/ValentinW">Valentin Wissler</a>
+        </p>
+      </div>
+   </body>
+</html>

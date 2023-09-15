@@ -1,0 +1,89 @@
+/****** Main Styling ******/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #0a0a0a9e;
+    background-color: #4fbef8;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 0;
+    margin-top: 40px;
+  }
+  
+  .footer {
+    margin-top: 60px;
+  }
+  
+  a {
+    color: #8d2195;
+  }
+  
+  input {
+    display: block;
+    position: relative;
+    margin: 10px auto;
+  }
+  
+  #genius {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    margin-top: -100px;
+    object-position: top;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  .myButton {
+    width: 150px;
+      box-shadow:inset 0px 1px 0px 0px #dcecfb;
+      background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+      background-color:#bddbfa;
+      border-radius:6px;
+      border:1px solid #84bbf3;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:Arial;
+      font-size:15px;
+      font-weight:bold;
+      padding:6px 24px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #528ecc;
+  }
+  .myButton:hover {
+      background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+      background-color:#80b5ea;
+  }
+  .myButton:active {
+      position:relative;
+      top:1px;
+  }
+  
+  .view {
+    background-color: #0aa5f5;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+    -webkit-box-shadow: inset -2px 0px 8px 5px rgba(204,225,236,1);
+    -moz-box-shadow: inset -2px 0px 8px 5px rgba(204,225,236,1);
+    box-shadow: inset -2px 0px 8px 5px rgba(204,225,236,1);
+    padding: 20px;
+    width: 60%;
+    min-width: 400px;
+  }
+  
+  #button1 {
+    flex: 1;
+  }
+  
+  #button2 {
+    flex: 1;
+  }
