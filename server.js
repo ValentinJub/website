@@ -17,6 +17,8 @@ const backendExerciseTrackerRouter = require('./routes/backend/exerciseTrackerRo
 const backendFileMetadataRouter = require('./routes/backend/fileMetadataRoute');
 const backendWeatherApiRouter = require('./routes/backend/weatherApiRoute');
 
+const qaMetricRouter = require('./routes/qa/metricRoute');
+
 
 
 //used to parse the raw data which contains a lot of metadata 
@@ -71,7 +73,10 @@ app.use('/projects/backend/url-shortner', backendUrlShortnerRouter);
 app.use('/projects/backend/exercise-tracker', backendExerciseTrackerRouter);
 app.use('/projects/backend/file-metadata', backendFileMetadataRouter);
 app.use('/projects/backend/weather-api', backendWeatherApiRouter);
+app.use('/projects/qa/metric-converter', qaMetricRouter);
 
 
 
 app.listen(process.env.PORT || 3000);
+
+module.exports = app;

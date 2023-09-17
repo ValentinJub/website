@@ -1,0 +1,12 @@
+html {
+    background-image: linear-gradient(to bottom, rgba(175, 141, 54, 0), rgba(175, 141, 54,1));
+    height: 100%;
+}
+
+code {
+    background-color: whitesmoke;
+}
+
+section, header {
+    margin: 50px;
+}
