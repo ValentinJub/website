@@ -1,15 +1,15 @@
 const chaiHttp = require('chai-http');
 const chai = require('chai');
 let assert = chai.assert;
-const server = require('../../../server');
+const server = require('../../../server.js');
 
 chai.use(chaiHttp);
 
-suite('Functional Tests', function() {
+describe('Functional Tests', function() {
   this.timeout(5000);
-  suite('Conversion tests with chai-http', function () {
+  describe('Conversion tests with chai-http', function () {
     // #1
-    test('Convert a valid input such as 10L: GET request to /api/convert', function (done) {
+    it('Convert a valid input such as 10L: GET request to /api/convert', function (done) {
       chai
         .request(server)
         .get('/projects/qa/metric-converter/api/convert?input=10l')
@@ -22,7 +22,7 @@ suite('Functional Tests', function() {
         });
     });
     // #2
-    test('Convert an invalid input such as 32g: GET request to /api/convert', function (done) {
+    it('Convert an invalid input such as 32g: GET request to /api/convert', function (done) {
       chai
         .request(server)
         .get('/projects/qa/metric-converter/api/convert?input=32g')
@@ -35,7 +35,7 @@ suite('Functional Tests', function() {
         });
     });
     // #3
-    test('Convert an invalid number such as 3/7.2/4kg: GET request to /api/convert', function (done) {
+    it('Convert an invalid number such as 3/7.2/4kg: GET request to /api/convert', function (done) {
       chai
         .request(server)
         .get('/projects/qa/metric-converter/api/convert?input=3/7.2/4kg')
@@ -48,7 +48,7 @@ suite('Functional Tests', function() {
         });
     });
     // #4
-    test('Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert', function (done) {
+    it('Convert an invalid number AND unit such as 3/7.2/4kilomegagram: GET request to /api/convert', function (done) {
       chai
         .request(server)
         .get('/projects/qa/metric-converter/api/convert?input=3/7.2/4kilomegagram')
@@ -61,7 +61,7 @@ suite('Functional Tests', function() {
         });
     });
     // #5
-    test('Convert with no number such as kg: GET request to /api/convert', function (done) {
+    it('Convert with no number such as kg: GET request to /api/convert', function (done) {
       chai
         .request(server)
         .get('/projects/qa/metric-converter/api/convert?input=kg')
@@ -73,6 +73,5 @@ suite('Functional Tests', function() {
           done();
         });
     });
-
   });
 });

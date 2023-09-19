@@ -1,0 +1,4 @@
+{
+    "verbose": true,
+    "ignore": ["**/tmp/**", "**/uploads/**", "**/public/mochawesome-reports/**"]
+}

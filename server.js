@@ -37,12 +37,13 @@ app.set('views, __dirname + /views');
 //we set the layout to the layout file in the layouts folder
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+
+
 //we set the public folder to the public folder
 app.use(express.static('public', {
     index: false, 
-    immutable: true, 
-    cacheControl: true,
-    maxAge: "30d"
+    cacheControl: false,
+    extensions: ['html', 'js']
 }));
 
 const fileUpload = require('express-fileupload');
