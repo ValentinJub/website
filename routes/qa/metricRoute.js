@@ -67,6 +67,8 @@ router.get("/", function (req, res) {
 //     });
 // });
 
+// Create a route to prevent issue with serving a JS file from the public folder
+// Sometime Express will send the file as text/html instead of text/javascript
 
 router.get('/assets/:filename', (req, res) => {
   const filename = req.params.filename;
@@ -92,20 +94,21 @@ router.get('/assets/:filename', (req, res) => {
   }
 })
 
+// Route to serve the mochawesome report
 
 router.get('/test', (req, res) => {
-  const Mocha = require('mocha');
+  // const Mocha = require('mocha');
 
-  let mocha = new Mocha({
-    reporter: 'mochawesome',
-    reporterOptions: {
-      reportDir: './public/mochawesome-reports/metric',
-      reportFilename: 'mochawesome-metric',
-      reportTitle: 'Metric Converter Tests',
-      reportPageTitle: 'Metric Converter Tests',
-      charts: true
-    }
-  });
+  // let mocha = new Mocha({
+  //   reporter: 'mochawesome',
+  //   reporterOptions: {
+  //     reportDir: './public/mochawesome-reports/metric',
+  //     reportFilename: 'mochawesome-metric',
+  //     reportTitle: 'Metric Converter Tests',
+  //     reportPageTitle: 'Metric Converter Tests',
+  //     charts: true
+  //   }
+  // });
   
   let testDir = './public/tests/metric-converter';
   

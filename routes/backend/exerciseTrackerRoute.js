@@ -4,13 +4,10 @@ var router = express.Router()
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-// [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if 
-// you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
-mongoose.set("strictQuery", false);
+const conn = require('../../connections/con_exercise_tracker');
+const userSchema = require('../../models/backend/users')
 
-/* See: https://mongoosejs.com/docs/connections.html#multiple_connections */
-
-const conn = mongoose.createConnection(process.env.EXERCISE_TRACKER_MONGO_URI, () => {return console.log('Connected to MongoDB on Exercise Tracker')});
+const User = conn.model('Users', userSchema)
 
 // http://expressjs.com/en/starter/basic-routing.html
 router.get("/", function (req, res) {
@@ -37,10 +34,8 @@ router.get("/", function (req, res) {
   });
 });
 
-var userSchema = require('../../models/backend/users')
 var exerciseSchema = require('../../models/backend/exercises')
 
-var User = conn.model('Users', userSchema);
 
 router.post('/api/users', function(req, res) {
   let username = req.body.username;

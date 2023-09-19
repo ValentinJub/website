@@ -3,13 +3,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 
 const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/projects');
 const htmlcssRouter = require('./routes/htmlandcss/index');
 const d3Router = require('./routes/d3/d3');
-const frontendRouter = require('./routes/frontend/frontend-index');
+const frontendRouter = require('./routes/frontend/frontendIndex');
 const backendTimestampRouter = require('./routes/backend/timestampRoute');
 const backendHeaderParserRouter = require('./routes/backend/headerParserRoute');
 const backendUrlShortnerRouter = require('./routes/backend/urlShortnerRoute');
@@ -18,6 +19,7 @@ const backendFileMetadataRouter = require('./routes/backend/fileMetadataRoute');
 const backendWeatherApiRouter = require('./routes/backend/weatherApiRoute');
 
 const qaMetricRouter = require('./routes/qa/metricRoute');
+const qaIssueRouter = require('./routes/qa/issueRoute');
 
 
 
@@ -37,6 +39,7 @@ app.set('views, __dirname + /views');
 //we set the layout to the layout file in the layouts folder
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+app.use(methodOverride('_method'));
 
 
 //we set the public folder to the public folder
@@ -68,13 +71,16 @@ app.use('/projects', projectRouter);
 app.use('/projects/d3', d3Router);
 app.use('/projects/htmlandcss', htmlcssRouter);
 app.use('/projects/frontend', frontendRouter);
+
 app.use('/projects/backend/timestamp', backendTimestampRouter);
 app.use('/projects/backend/header-parser', backendHeaderParserRouter);
 app.use('/projects/backend/url-shortner', backendUrlShortnerRouter);
 app.use('/projects/backend/exercise-tracker', backendExerciseTrackerRouter);
 app.use('/projects/backend/file-metadata', backendFileMetadataRouter);
 app.use('/projects/backend/weather-api', backendWeatherApiRouter);
+
 app.use('/projects/qa/metric-converter', qaMetricRouter);
+app.use('/projects/qa/issue-tracker/', qaIssueRouter);
 
 
 
