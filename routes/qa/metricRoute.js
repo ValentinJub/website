@@ -72,27 +72,35 @@ router.get("/", function (req, res) {
 
 router.get('/assets/:filename', (req, res) => {
   const filename = req.params.filename;
-  if(filename.endsWith('.js')) {
-    var options = {
-      root: "public/mochawesome-reports/metric/assets/",
-      dotfiles: 'deny',
-      headers: {
+  const type = filename.split('.')[1];
+  let content_type = '';  
+  if(type === 'js') content_type = 'text/javascript';
+  else if(type === 'css') content_type = 'text/css';
+  else if(type === 'png') content_type = 'image/png';
+  else if(type === 'svg') content_type = 'image/svg+xml';
+  else if(type === 'ico') content_type = 'image/x-icon';
+  else if(type === 'json') content_type = 'application/json';
+  else content_type = 'text/html';
+
+  var options = {
+    root: "public/mochawesome-reports/assets/",
+    dotfiles: 'deny',
+    headers: {
         'x-timestamp': Date.now(),
         'x-sent': true,
-        'Content-Type': 'text/javascript'
-      }
+        'Content-Type': content_type
     }
-    res.sendFile(filename, options, function (err) {
-      if(err) {
-          console.log(err);
-          res.status(403).send("Sorry but you shouldn't be here...");
-      }
-      else {
-          console.log('Sent:', filename);
-      }
-    });
   }
-})
+  res.sendFile(filename, options, function (err) {
+    if(err) {
+        console.log(err);
+        res.status(403).send("Sorry but you shouldn't be here...");
+    }
+    else {
+        console.log('Sent:', filename);
+    }
+  });
+});
 
 // Route to serve the mochawesome report
 
@@ -120,7 +128,7 @@ router.get('/test', (req, res) => {
     // Run the tests.
       // mocha.ui('bdd').run();
     var options = {
-      root: "public/mochawesome-reports/metric/",
+      root: "public/mochawesome-reports/",
       dotfiles: 'deny',
       headers: {
         'x-timestamp': Date.now(),

@@ -11,6 +11,9 @@ const projectRouter = require('./routes/projects');
 const htmlcssRouter = require('./routes/htmlandcss/index');
 const d3Router = require('./routes/d3/d3');
 const frontendRouter = require('./routes/frontend/frontendIndex');
+
+/*~~~~~ Backend routes ~~~~~*/ 
+
 const backendTimestampRouter = require('./routes/backend/timestampRoute');
 const backendHeaderParserRouter = require('./routes/backend/headerParserRoute');
 const backendUrlShortnerRouter = require('./routes/backend/urlShortnerRoute');
@@ -18,8 +21,12 @@ const backendExerciseTrackerRouter = require('./routes/backend/exerciseTrackerRo
 const backendFileMetadataRouter = require('./routes/backend/fileMetadataRoute');
 const backendWeatherApiRouter = require('./routes/backend/weatherApiRoute');
 
+/*~~~~~ QA routes ~~~~~*/ 
+
 const qaMetricRouter = require('./routes/qa/metricRoute');
 const qaIssueRouter = require('./routes/qa/issueRoute');
+const qaLibraryRouter = require('./routes/qa/libraryRoute');
+const qaSudokuRouter = require('./routes/qa/sudokuRoute');
 
 
 
@@ -56,21 +63,13 @@ app.use(fileUpload({
     createParentPath: true
   }));
 
-// const mongoose = require('mongoose');
-
-/* See: https://mongoosejs.com/docs/connections.html */
-
-// mongoose.connect(process.env.MONGO_URI).then(
-//   () => {return console.log('Connected to MongoDB')},
-//   err => {return console.error(err)}
-// )
-
-
 app.use('/', indexRouter);
 app.use('/projects', projectRouter);
 app.use('/projects/d3', d3Router);
 app.use('/projects/htmlandcss', htmlcssRouter);
 app.use('/projects/frontend', frontendRouter);
+
+/*~~~~~ Backend routes ~~~~~*/ 
 
 app.use('/projects/backend/timestamp', backendTimestampRouter);
 app.use('/projects/backend/header-parser', backendHeaderParserRouter);
@@ -79,9 +78,12 @@ app.use('/projects/backend/exercise-tracker', backendExerciseTrackerRouter);
 app.use('/projects/backend/file-metadata', backendFileMetadataRouter);
 app.use('/projects/backend/weather-api', backendWeatherApiRouter);
 
+/*~~~~~ QA routes ~~~~~*/ 
+
 app.use('/projects/qa/metric-converter', qaMetricRouter);
 app.use('/projects/qa/issue-tracker/', qaIssueRouter);
-
+app.use('/projects/qa/library/', qaLibraryRouter);
+app.use('/projects/qa/sudoku/', qaSudokuRouter);
 
 
 app.listen(process.env.PORT || 3000);

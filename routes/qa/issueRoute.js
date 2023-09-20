@@ -6,10 +6,6 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-// [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if 
-// you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
-mongoose.set("strictQuery", false);
-
 /* See: https://mongoosejs.com/docs/connections.html#multiple_connections */
 
 const conn = require('../../connections/con_issue');
@@ -115,7 +111,7 @@ router.get('/test', (req, res) => {
     let mocha = new Mocha({
       reporter: 'mochawesome',
       reporterOptions: {
-        reportDir: './public/mochawesome-reports/issue',
+        reportDir: './public/mochawesome-reports/',
         reportFilename: 'mochawesome-issue',
         reportTitle: 'Issue Tracker Tests',
         reportPageTitle: 'Issue Tracker Tests',
@@ -132,7 +128,7 @@ router.get('/test', (req, res) => {
       // Run the tests.
         // mocha.ui('bdd').run();
       var options = {
-        root: "public/mochawesome-reports/issue/",
+        root: "public/mochawesome-reports/",
         dotfiles: 'deny',
         headers: {
           'x-timestamp': Date.now(),
@@ -158,29 +154,37 @@ router.get('/test', (req, res) => {
     }
   });
 
-router.get('/assets/:filename', (req, res) => {
-const filename = req.params.filename;
-if(filename.endsWith('.js')) {
+  router.get('/assets/:filename', (req, res) => {
+    const filename = req.params.filename;
+    const type = filename.split('.')[1];
+    let content_type = '';  
+    if(type === 'js') content_type = 'text/javascript';
+    else if(type === 'css') content_type = 'text/css';
+    else if(type === 'png') content_type = 'image/png';
+    else if(type === 'svg') content_type = 'image/svg+xml';
+    else if(type === 'ico') content_type = 'image/x-icon';
+    else if(type === 'json') content_type = 'application/json';
+    else content_type = 'text/html';
+  
     var options = {
-    root: "public/mochawesome-reports/issue/assets/",
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true,
-        'Content-Type': 'text/javascript'
-    }
+      root: "public/mochawesome-reports/assets/",
+      dotfiles: 'deny',
+      headers: {
+          'x-timestamp': Date.now(),
+          'x-sent': true,
+          'Content-Type': content_type
+      }
     }
     res.sendFile(filename, options, function (err) {
-    if(err) {
-        console.log(err);
-        res.status(403).send("Sorry but you shouldn't be here...");
-    }
-    else {
-        console.log('Sent:', filename);
-    }
+      if(err) {
+          console.log(err);
+          res.status(403).send("Sorry but you shouldn't be here...");
+      }
+      else {
+          console.log('Sent:', filename);
+      }
     });
-}
-})
+  });
 
 router.put('/api/issues/:project', async (req, res) => {
     // logger(req)
