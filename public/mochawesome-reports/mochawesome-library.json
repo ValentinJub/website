@@ -1,0 +1,403 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 10,
+    "passes": 8,
+    "pending": 0,
+    "failures": 2,
+    "start": "2023-09-20T11:36:26.478Z",
+    "end": "2023-09-20T11:36:27.002Z",
+    "duration": 524,
+    "testsRegistered": 10,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2d2f758e-794a-41bc-bde0-a2ee92a3b3dd",
+      "title": "",
+      "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+      "file": "/public/tests/library/functional_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9be5d2bf-5e77-4768-9912-3f2010c4bbeb",
+          "title": "Functional Tests",
+          "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+          "file": "/public/tests/library/functional_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "57e8b38d-da33-479c-b42a-4af1756911a4",
+              "title": "Routing tests",
+              "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+              "file": "/public/tests/library/functional_test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "9d0a50c9-c0dd-470f-ad2c-6d71a4dd3b6a",
+                  "title": "POST /api/books with title => create book object/expect book object",
+                  "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+                  "file": "/public/tests/library/functional_test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Test POST /api/books with title",
+                      "fullTitle": "Functional Tests Routing tests POST /api/books with title => create book object/expect book object Test POST /api/books with title",
+                      "timedOut": false,
+                      "duration": 163,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.post('/projects/qa/library/api/books')\n.send({\n  \"title\": \"Je suis un titre de livre, et toi?\"\n})\n.end(async (err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.equal(res.body.title,'Je suis un titre de livre, et toi?');\n  _id = res.body._id\n  title = res.body.title\n  done();\n})",
+                      "err": {},
+                      "uuid": "97c9505e-5bce-4012-a79b-fb590e7fe2e6",
+                      "parentUUID": "9d0a50c9-c0dd-470f-ad2c-6d71a4dd3b6a",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Test POST /api/books with no title given",
+                      "fullTitle": "Functional Tests Routing tests POST /api/books with title => create book object/expect book object Test POST /api/books with no title given",
+                      "timedOut": false,
+                      "duration": 2,
+                      "state": "passed",
+                      "speed": "fast",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.post('/projects/qa/library/api/books')\n.send({})\n.end(async (err, res) => {\n  if(err) return console.error(err)\n  //status should be 400 but fcc test fail when setting the status other than 200\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'missing required field title', 'Return value should be: \"missing required field title\"');\n  done();\n})",
+                      "err": {},
+                      "uuid": "376b3220-8803-448b-a1c1-b3902fa38af5",
+                      "parentUUID": "9d0a50c9-c0dd-470f-ad2c-6d71a4dd3b6a",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "97c9505e-5bce-4012-a79b-fb590e7fe2e6",
+                    "376b3220-8803-448b-a1c1-b3902fa38af5"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 165,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "fd2a03ff-eeb9-4308-a13f-0a9fb6efaf5a",
+                  "title": "GET /api/books => array of books",
+                  "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+                  "file": "/public/tests/library/functional_test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Test GET /api/books",
+                      "fullTitle": "Functional Tests Routing tests GET /api/books => array of books Test GET /api/books",
+                      "timedOut": false,
+                      "duration": 43,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.get('/projects/qa/library/api/books')\n.end((err, res) => {\n  if(err) return console.error(err)\n  //status should be 400 but fcc test fail when setting the status other than 200\n  assert.equal(res.status, 200);\n  assert.isArray(res.body, 'An array should be returned');\n  assert.property(res.body[0], 'title');\n  assert.property(res.body[0], '_id');\n  assert.property(res.body[0], 'commentcount');\n  done();\n})",
+                      "err": {},
+                      "uuid": "1ed75909-3ba7-4865-ad5c-a1cd06d32bb2",
+                      "parentUUID": "fd2a03ff-eeb9-4308-a13f-0a9fb6efaf5a",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "1ed75909-3ba7-4865-ad5c-a1cd06d32bb2"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 43,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "140c7deb-41f9-48e2-a871-4688358df15c",
+                  "title": "GET /api/books/[id] => book object with [id]",
+                  "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+                  "file": "/public/tests/library/functional_test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Test GET /api/books/[id] with valid id in db",
+                      "fullTitle": "Functional Tests Routing tests GET /api/books/[id] => book object with [id] Test GET /api/books/[id] with valid id in db",
+                      "timedOut": false,
+                      "duration": 69,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.get(`/projects/qa/library/api/books/${_id}`)\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.isObject(res.body, 'An object should be returned');\n  assert.property(res.body, 'title');\n  assert.property(res.body, '_id');\n  assert.property(res.body, \"comments\");\n  assert.strictEqual(res.body._id, _id);\n  assert.strictEqual(res.body.title, title);\n  done();\n});",
+                      "err": {},
+                      "uuid": "13741dee-455b-4f34-9470-cde4c0117264",
+                      "parentUUID": "140c7deb-41f9-48e2-a871-4688358df15c",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Test GET /api/books/[id] with id not in db",
+                      "fullTitle": "Functional Tests Routing tests GET /api/books/[id] => book object with [id] Test GET /api/books/[id] with id not in db",
+                      "timedOut": false,
+                      "duration": 4,
+                      "state": "passed",
+                      "speed": "fast",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.get('/projects/qa/library/api/books/filsdepute')\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'no book exists', 'Return value should be: \"no book exists\"');\n  done();\n});",
+                      "err": {},
+                      "uuid": "7bc4af17-944d-4812-8003-90dc1236d0b4",
+                      "parentUUID": "140c7deb-41f9-48e2-a871-4688358df15c",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "13741dee-455b-4f34-9470-cde4c0117264",
+                    "7bc4af17-944d-4812-8003-90dc1236d0b4"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 73,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "a2fce393-6eeb-48b8-bdc0-b0649f0ae116",
+                  "title": "POST /api/books/[id] => add comment/expect book object with id",
+                  "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+                  "file": "/public/tests/library/functional_test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Test POST /api/books/[id] with comment",
+                      "fullTitle": "Functional Tests Routing tests POST /api/books/[id] => add comment/expect book object with id Test POST /api/books/[id] with comment",
+                      "timedOut": false,
+                      "duration": 155,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.post(`/projects/qa/library/api/books/${_id}`)\n.send({\n  comment: \"J'suis un commentaire, ques'tu va faire?!\"\n})\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.isObject(res.body, 'An object should be returned');\n  assert.property(res.body, 'title');\n  assert.property(res.body, '_id');\n  assert.property(res.body, \"comments\");\n  assert.strictEqual(res.body._id, _id);\n  assert.strictEqual(res.body.title, title);\n  assert.isArray(res.body.comments, 'An array should be returned')\n  //a comment is just posted so we make sure it is above 0\n  assert.isAbove(res.body.comments.length, 0)\n  done();\n});",
+                      "err": {},
+                      "uuid": "9c17b72f-78db-4340-843e-1eec8001e652",
+                      "parentUUID": "a2fce393-6eeb-48b8-bdc0-b0649f0ae116",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Test POST /api/books/[id] without comment field",
+                      "fullTitle": "Functional Tests Routing tests POST /api/books/[id] => add comment/expect book object with id Test POST /api/books/[id] without comment field",
+                      "timedOut": false,
+                      "duration": 2,
+                      "state": "passed",
+                      "speed": "fast",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.post(`/projects/qa/library/api/books/${_id}`)\n.send({\n  what: 123\n})\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'missing required field comment', 'Return value should be: \"missing required field comment\"');\n  done();\n});",
+                      "err": {},
+                      "uuid": "27b2c463-c197-4a54-a4c8-8ff27d61230e",
+                      "parentUUID": "a2fce393-6eeb-48b8-bdc0-b0649f0ae116",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Test POST /api/books/[id] with comment, id not in db",
+                      "fullTitle": "Functional Tests Routing tests POST /api/books/[id] => add comment/expect book object with id Test POST /api/books/[id] with comment, id not in db",
+                      "timedOut": false,
+                      "duration": 70,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.post(`/projects/qa/library/api/books/5f665eb46e296f6b9b6a514d`)\n.send({\n  comment: \"J'suis un commentaire sans ID\"\n})\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'no book exists', 'Return value should be: \"no book exists\"');\n  done();\n});",
+                      "err": {},
+                      "uuid": "97e3b2dc-29ea-46f9-b296-5831957377fd",
+                      "parentUUID": "a2fce393-6eeb-48b8-bdc0-b0649f0ae116",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "9c17b72f-78db-4340-843e-1eec8001e652",
+                    "27b2c463-c197-4a54-a4c8-8ff27d61230e",
+                    "97e3b2dc-29ea-46f9-b296-5831957377fd"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 227,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "53b58d61-0d0b-457c-80e0-f831e954ae92",
+                  "title": "DELETE /api/books/[id] => delete book object id",
+                  "fullFile": "/home/val/dev/website/public/tests/library/functional_test.js",
+                  "file": "/public/tests/library/functional_test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Test DELETE /api/books/[id] with valid id in db",
+                      "fullTitle": "Functional Tests Routing tests DELETE /api/books/[id] => delete book object id Test DELETE /api/books/[id] with valid id in db",
+                      "timedOut": false,
+                      "duration": 3,
+                      "state": "failed",
+                      "speed": null,
+                      "pass": false,
+                      "fail": true,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.delete(`/projects/qa/library/api/books/${_id}`)\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'delete successful', 'Return value should be: \"delete successful\"');\n  done();\n});",
+                      "err": {
+                        "message": "AssertionError: expected 404 to equal 200",
+                        "estack": "AssertionError: expected 404 to equal 200\n    at /home/val/dev/website/public/tests/library/functional_test.js:157:18\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:857:12)\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)\n    at endReadableNT (_stream_readable.js:1241:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                        "diff": "- 404\n+ 200\n"
+                      },
+                      "uuid": "c5acdde2-cc0d-498f-9b17-39cbe3b4a4d9",
+                      "parentUUID": "53b58d61-0d0b-457c-80e0-f831e954ae92",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Test DELETE /api/books/[id] with  id not in db",
+                      "fullTitle": "Functional Tests Routing tests DELETE /api/books/[id] => delete book object id Test DELETE /api/books/[id] with  id not in db",
+                      "timedOut": false,
+                      "duration": 1,
+                      "state": "failed",
+                      "speed": null,
+                      "pass": false,
+                      "fail": true,
+                      "pending": false,
+                      "context": null,
+                      "code": "chai\n.request(server)\n.delete(`/projects/qa/library/api/books/5f665eb46e296f6b9b6a514d`)\n.end((err, res) => {\n  if(err) return console.error(err)\n  assert.equal(res.status, 200);\n  assert.strictEqual(res.text,'no book exists', 'Return value should be: \"no book exists\"');\n  done();\n});",
+                      "err": {
+                        "message": "AssertionError: expected 404 to equal 200",
+                        "estack": "AssertionError: expected 404 to equal 200\n    at /home/val/dev/website/public/tests/library/functional_test.js:168:18\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:857:12)\n    at IncomingMessage.<anonymous> (node_modules/superagent/lib/node/index.js:1070:18)\n    at endReadableNT (_stream_readable.js:1241:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                        "diff": "- 404\n+ 200\n"
+                      },
+                      "uuid": "32e19220-5f89-4be2-9bae-1e890b1d3db9",
+                      "parentUUID": "53b58d61-0d0b-457c-80e0-f831e954ae92",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [],
+                  "failures": [
+                    "c5acdde2-cc0d-498f-9b17-39cbe3b4a4d9",
+                    "32e19220-5f89-4be2-9bae-1e890b1d3db9"
+                  ],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 4,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome-library",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "./public/mochawesome-reports",
+        "reportFilename": "mochawesome-library",
+        "reportTitle": "Library Tests",
+        "reportPageTitle": "Library Tests",
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
