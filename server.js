@@ -27,6 +27,7 @@ const qaMetricRouter = require('./routes/qa/metricRoute');
 const qaIssueRouter = require('./routes/qa/issueRoute');
 const qaLibraryRouter = require('./routes/qa/libraryRoute');
 const qaSudokuRouter = require('./routes/qa/sudokuRoute');
+const qaTranslatorRouter = require('./routes/qa/translatorRoute');
 
 
 
@@ -84,6 +85,7 @@ app.use('/projects/qa/metric-converter', qaMetricRouter);
 app.use('/projects/qa/issue-tracker/', qaIssueRouter);
 app.use('/projects/qa/library/', qaLibraryRouter);
 app.use('/projects/qa/sudoku/', qaSudokuRouter);
+app.use('/projects/qa/translator/', qaTranslatorRouter);
 
 
 app.listen(process.env.PORT || 3000);
