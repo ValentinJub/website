@@ -1,0 +1,64 @@
+html {
+    font-size: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: linear-gradient(45deg, purple, blue, rgb(220, 0, 255));
+}
+
+#tribute-link {
+    text-decoration: none;
+    color: red;
+}
+
+a:hover {
+    transform: scale(2.1);
+}
+
+body {
+    text-align: center;
+}
+
+#main {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h3 {
+    padding: 25px 0px 0px 25px;
+}
+
+#quote {
+    font-size: 1.5rem;
+}
+
+#img-div {
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+#image {
+    max-width: 65%;
+    display: block;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 1em;
+    box-shadow: 10px 20px 20px rgba(0,0,0,1);
+}
+
+#img-caption {
+    margin: 5px 0px 10px 0px;
+}
+
+ul {
+    max-width: 65%;
+    margin: 0 auto 50px auto;
+    text-align: left;
+}
+
+li {
+    line-height: 1.6;
+    margin: 10px 0px 0px 0px;
+}

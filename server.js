@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const helmet = require('helmet');
 
 const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
@@ -34,7 +35,37 @@ const qaTranslatorRouter = require('./routes/qa/translatorRoute');
 //used to parse the raw data which contains a lot of metadata 
 //of the POST request to only extract the data we want
 //using REQUEST.body object
+
 const bodyParser = require('body-parser');
+
+//setting CSP sources for helmet
+
+const scriptSources = ["'self'", "https://unpkg.com", "https://www.youtube-nocookie.com", "ajax.googleapis.com", "https://cdnjs.cloudflare.com", "https://code.jquery.com", "https://stackpath.bootstrapcdn.com"];
+const styleSources = ["'self'", "https://cdnjs.cloudflare.com", "https://stackpath.bootstrapcdn.com", "https://fonts.googleapis.com" ];
+const imgSources = ["'self'", "https://upload.wikimedia.org", "https://docs.microsoft.com"];
+const audioSources = ["'self'", "https://s3.amazonaws.com/freecodecamp/drums/"];
+const fontSources = ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com",  "https://cdnjs.cloudflare.com"];
+const connectSources = ["'self'", "https://cdn.freecodecamp.org"];
+const frameSources = ["'self'", "https://www.youtube-nocookie.com"];
+
+// Setting the content security policy to only allow scripts and styles from our server and trusted sources.
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: scriptSources,
+    styleSrc: styleSources,
+    imgSrc: imgSources,
+    mediaSrc: audioSources,
+    fontSrc: fontSources,
+    connectSrc: connectSources,
+    frameSrc: frameSources
+  }
+}));
+
+// We disable the X-Powered-By header to make it slightly harder for attackers to see what potentially-vulnerable technology powers our site.
+
+app.disable('x-powered-by');
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));

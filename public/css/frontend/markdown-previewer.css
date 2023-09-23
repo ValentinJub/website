@@ -1,0 +1,66 @@
+:root {
+    --cyan-color:#61edb0;
+    --matcha-color:#8bed61;
+    --orange-color:#e0ab19;
+    }
+
+    html {
+    font-size: 10px;
+    font-family: hack;
+    background-color: var(--orange-color);
+    }
+
+    #wrapper {
+    font-size: 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    
+    }
+
+    .header {
+    font-family: hack-bold;
+    border: 2px solid black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    min-height: 2vh;
+    }
+
+    #markdown {
+    background-color: var(--cyan-color);
+    min-width: 33vw;
+    min-height: 20vh;
+    max-width: 98vw;
+    border: 2px solid black;
+    border-radius: 0.2em;
+    }
+
+    #editor {
+    min-width: inherit;
+    max-width: inherit;
+    border: 2px solid black;
+    margin-bottom: -5px;
+    min-height: 18vh;
+    }
+
+    #results {
+    border: 2px solid black;
+    border-radius: 0.2em;
+    background-color: var(--matcha-color);
+    min-width: 33vw;
+    max-width: 98vw;
+    }
+
+    #preview {
+    border: 2px solid black;
+    
+    margin-bottom: 0px;
+    min-width: 33vw;
+    min-height: 10vh;
+    max-width: inherit;
+    }

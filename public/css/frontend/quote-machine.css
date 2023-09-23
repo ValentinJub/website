@@ -1,0 +1,76 @@
+html {
+    font-size: 20px;
+}
+
+#foot {
+color: white;
+}
+
+#me {
+color: hotpink;
+text-decoration: none;
+}
+
+#me:hover {
+color: red;
+text-decoration: none;
+cursor: crosshair;
+}
+
+.UI {
+background: rgb(238, 174, 202);
+background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(101, 149, 162, 1) 11%,
+    rgba(26, 13, 31, 1) 46%,
+    rgba(148, 187, 233, 1) 75%
+);
+
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+text-align: center;
+min-height: 100vh;
+min-width: 100vw;
+
+font-family: "Slabo 13px", serif;
+}
+
+.box {
+display: flex;
+flex-direction: column;
+flex-shrink: 0;
+justify-content: space-around;
+align-items: center;
+text-align: center;
+
+background-color: silver;
+
+max-width: 75vw;
+min-width: 50vw;
+height: 50vh;
+
+border-radius: 12px;
+box-shadow: 6px 9px 18px 12px #000000;
+
+padding-top: 5px;
+padding-bottom: 5px;
+
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+}
+
+@media(max-height: 600px) , (max-width: 600px) {
+    .box {
+        height: 70vh;
+        font-size: 25px
+    }
+    p {
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+}
