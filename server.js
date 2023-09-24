@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
 const helmet = require('helmet');
+const crypto = require('crypto');
 
 const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
@@ -50,16 +51,26 @@ const frameSources = ["'self'", "https://www.youtube-nocookie.com"];
 
 // Setting the content security policy to only allow scripts and styles from our server and trusted sources.
 
+// app.use((req, res, next) => {
+//   res.locals.cspNonce = crypto.randomBytes(16).toString("hex");
+//   next();
+// });
+
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-    scriptSrc: scriptSources,
+    scriptSrc: 
+      scriptSources
+        .concat((req, res) => {
+          res.locals.cspNonce = crypto.randomBytes(16).toString("base64");
+          return `'nonce-${res.locals.cspNonce}'`;
+        }),
     styleSrc: styleSources,
     imgSrc: imgSources,
     mediaSrc: audioSources,
     fontSrc: fontSources,
     connectSrc: connectSources,
-    frameSrc: frameSources
+    frameSrc: frameSources,
   }
 }));
 

@@ -117,8 +117,7 @@ constructor(props) {
 
 calculate(expression) {
     const exp = expression.join('');
-    console.log(exp);
-    const result = eval(exp);
+    const result = math.evaluate(exp);
     this.setState({input:result,expression:[],symbolUsed:false,parenthesisNeedClosing:false});
 }
 
