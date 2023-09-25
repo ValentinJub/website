@@ -1,0 +1,14 @@
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: red;
+}
+
+#tooltip {
+    position: fixed;
+    text-align: center;
+    background-color: aquamarine;
+    font-size: 1.5rem;
+}
