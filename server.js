@@ -43,10 +43,10 @@ const bodyParser = require('body-parser');
 
 const scriptSources = ["'self'", "https://unpkg.com", "https://www.youtube-nocookie.com", "ajax.googleapis.com", "https://cdnjs.cloudflare.com", "https://code.jquery.com", "https://stackpath.bootstrapcdn.com"];
 const styleSources = ["'self'", "https://cdnjs.cloudflare.com", "https://stackpath.bootstrapcdn.com", "https://fonts.googleapis.com" ];
-const imgSources = ["'self'", "https://upload.wikimedia.org", "https://docs.microsoft.com"];
+const imgSources = ["'self'", "https://cdn.freecodecamp.org", "https://upload.wikimedia.org", "https://docs.microsoft.com", "https://en.akinator.com/bundles/elokencesite/images/akitudes_670x1096/defi.png?v94"];
 const audioSources = ["'self'", "https://s3.amazonaws.com/freecodecamp/drums/"];
 const fontSources = ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com",  "https://cdnjs.cloudflare.com"];
-const connectSources = ["'self'", "https://cdn.freecodecamp.org"];
+const connectSources = ["'self'", "https://weather-proxy.freecodecamp.rocks", "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/"];
 const frameSources = ["'self'", "https://www.youtube-nocookie.com"];
 
 // Setting the content security policy to only allow scripts and styles from our server and trusted sources.
