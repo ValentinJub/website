@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exercise Tracker | freeCodeCamp</title>
-    <link rel="shortcut icon" href="https://preview.redd.it/quch0lcijir91.png?width=640&crop=smart&auto=webp&s=9ac25854cc1492966d6058cfcf55f5e0eb7c2990"  type="image/x-icon" />
+    <meta charset="UTF-8">
+		<meta name="description " content="Exercise Tracker App">
+		<meta name="author" content="Valentin Wissler">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/images/crash_ico.webp" type="image/x-icon" />
+    <title>Exercise Tracker</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
     <link href="/css/backend/exercise-tracker.css" rel="stylesheet" type="text/css" />
   </head>
-
   <body>
     <div class="container">
       <h1>Exercise tracker</h1>
@@ -45,61 +49,6 @@
         <input type="submit" value="Submit" />
       </form>
     </div>
-    <script>
-      const postExerciseForm = document.getElementById("post-exercise-form");
-      const listLogsForm = document.getElementById("list-logs-form");
-      
-      postExerciseForm.addEventListener("submit", () => {
-        const userId = document.getElementById("uid").value;
-        postExerciseForm.action = `/projects/backend/exercise-tracker/api/users/${userId}/exercises`;
-
-        postExerciseForm.submit();
-      });
-
-      listLogsForm.addEventListener("submit", () => {
-        debugger;
-        const userId = document.getElementById("userid").value;
-        const fromDate = document.getElementById("from").value;
-        const toDate = document.getElementById("to").value;
-        const limit = document.getElementById("limit").value;
-        let url = "";
-
-        if(fromDate !== "" && toDate !== "") {
-          if(limit !== "") {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?from=${fromDate}&to=${toDate}&limit=${limit}`
-          }
-          else {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?from=${fromDate}&to=${toDate}`
-          }
-        }
-        else if(toDate !== "") {
-          if(limit !== "") {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?to=${toDate}&limit=${limit}`
-          }
-          else {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?&to=${toDate}`
-          }
-        }
-        else if(fromDate !== "") {
-          if(limit !== "") {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?from=${fromDate}&limit=${limit}`
-          }
-          else {
-            url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?&from=${fromDate}`
-          }
-        }
-        else if(limit !== "") {
-          url = `/projects/backend/exercise-tracker/api/users/${userId}/logs?limit=${limit}`
-        }
-        else {
-          url = `/projects/backend/exercise-tracker/api/users/${userId}/logs`
-        }
-        
-        listLogsForm.action = url;
-
-        listLogsForm.submit();
-      });
-      
-    </script>
+    <script src="/js/backend/exercisetracker.js" type="text/javascript"></script>
   </body>
 </html>
