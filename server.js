@@ -10,7 +10,7 @@ const crypto = require('crypto');
 const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/index');
 const projectRouter = require('./routes/projects');
-const htmlcssRouter = require('./routes/htmlandcss/index');
+const htmlcssRouter = require('./routes/htmlandcss/htmlandcssRoute');
 const d3Router = require('./routes/d3/d3');
 const frontendRouter = require('./routes/frontend/frontendIndex');
 
@@ -31,6 +31,9 @@ const qaLibraryRouter = require('./routes/qa/libraryRoute');
 const qaSudokuRouter = require('./routes/qa/sudokuRoute');
 const qaTranslatorRouter = require('./routes/qa/translatorRoute');
 
+/*~~~~~ IS routes ~~~~~*/ 
+const isStockRouter = require('./routes/is/stockRoute');
+const isMessageBoardRouter = require('./routes/is/messageRoute');
 
 
 //used to parse the raw data which contains a lot of metadata 
@@ -46,7 +49,7 @@ const styleSources = ["'self'", "https://cdnjs.cloudflare.com", "https://stackpa
 const imgSources = ["'self'", "https://cdn.freecodecamp.org", "https://upload.wikimedia.org", "https://docs.microsoft.com", "https://en.akinator.com/bundles/elokencesite/images/akitudes_670x1096/defi.png?v94"];
 const audioSources = ["'self'", "https://s3.amazonaws.com/freecodecamp/drums/"];
 const fontSources = ["'self'", "https://fonts.googleapis.com", "https://fonts.gstatic.com",  "https://cdnjs.cloudflare.com"];
-const connectSources = ["'self'", "https://weather-proxy.freecodecamp.rocks", "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/"];
+const connectSources = ["'self'", "https://cdn.freecodecamp.org", "https://weather-proxy.freecodecamp.rocks", "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/"];
 const frameSources = ["'self'", "https://www.youtube-nocookie.com"];
 
 // Setting the content security policy to only allow scripts and styles from our server and trusted sources.
@@ -129,6 +132,9 @@ app.use('/projects/qa/library/', qaLibraryRouter);
 app.use('/projects/qa/sudoku/', qaSudokuRouter);
 app.use('/projects/qa/translator/', qaTranslatorRouter);
 
+/*~~~~~ IS routes ~~~~~*/ 
+app.use('/projects/is/stock-price-checker/', isStockRouter);
+app.use('/projects/is/message-board/', isMessageBoardRouter);
 
 app.listen(process.env.PORT || 3000);
 

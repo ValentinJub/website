@@ -26,7 +26,7 @@ $( document ).ready(function() {
         $.each(data.comments, function(i, val) {
           comments.push('<li>' +val+ '</li>');
         });
-        comments.push('<br><form id="newCommentForm"><input style="width:300px" type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
+        comments.push('<br><form id="newCommentForm"><input type="text" class="form-control" id="commentToAdd" name="comment" placeholder="New Comment"></form>');
         comments.push('<br><button class="btn btn-info addComment" id="'+ data._id+'">Add Comment</button>');
         comments.push('<button class="btn btn-danger deleteBook" id="'+ data._id+'">Delete Book</button>');
         $('#detailComments').html(comments.join(''));
@@ -39,7 +39,7 @@ $( document ).ready(function() {
         type: 'delete',
         success: function(data) {
           //update list
-          $('#detailComments').html('<p style="color: red;">'+data+'<p><p>Refresh the page</p>');
+          $('#detailComments').html('<p class="detailComments">'+data+'<p><p>Refresh the page</p>');
         }
       });
     });  
@@ -58,14 +58,16 @@ $( document ).ready(function() {
       });
     });
     
-    $('#newBook').click(function() {
+    
+    $('#newBook').click(function(e) {
+      e.preventDefault();
       $.ajax({
         url: 'library/api/books',
         type: 'post',
         dataType: 'json',
         data: $('#newBookForm').serialize(),
         success: function(data) {
-          //update list
+          return false;
         }
       });
     });
@@ -75,11 +77,14 @@ $( document ).ready(function() {
         url: 'library/api/books',
         type: 'delete',
         dataType: 'json',
-        data: $('#newBookForm').serialize(),
         success: function(data) {
           //update list
         }
       });
     }); 
-    
-  });
+
+    $('#commentTest').submit(function(){
+      let  id = $('#idinputtest').val();
+      $(this).attr('action', "library/api/books/" + id);
+    });
+});

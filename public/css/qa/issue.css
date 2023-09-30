@@ -26,3 +26,34 @@
   .id {
     font-size: 10.5px;
   }
+
+  section {
+    margin: 0 50px;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
+  hr {
+    margin: 0 50px;
+  }
+
+  .bighr {
+    margin: 50px; 
+    margin-top: 200px;
+  }
+
+  input, textarea {
+    width: 100px;
+  }
+
+  #biginput {
+    width: 320px; 
+    margin-bottom: 3px;
+  }
+
+  #bigtextarea {
+    width: 320px; 
+    height: 100px;
+  }

@@ -32,3 +32,27 @@
   input {
     margin-bottom: 5px;
   }
+
+  code {
+    background-color: whitesmoke;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
+  hr {
+    margin: 50px;
+  }
+
+  #bookTitleToAdd {
+    width: 295px;
+  }
+
+  #commentToAdd {
+    width:300px;
+  }
+
+  .detailComments {
+    color: red;
+  }

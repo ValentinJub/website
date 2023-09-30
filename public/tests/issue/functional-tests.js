@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const conn = require('../../../connections/con_issue');
 
-const issueSchema = require('../../../models/qa/issue')
+const issueSchema = require('../../../schemas/qa/issue')
 const Issue = conn.model('Issue', issueSchema)
 
 chai.use(chaiHttp);

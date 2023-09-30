@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 const conn = require('../../connections/con_issue');
 
-const issueSchema = require('../../models/qa/issue')
+const issueSchema = require('../../schemas/qa/issue')
 const Issue = conn.model('Issue', issueSchema)
 
 
@@ -47,6 +47,18 @@ function queryParser(query, fields, obj = {}) {
     })
     return obj;
   }
+
+router.get('/api/issues/s/:project', async (req, res) => {
+  let project = req.params.project;
+  try {
+    let issues = await Issue.find().limit(2).exec();
+    res.render('issue_tracker/issues', { layout: 'layouts/issue_tracker', project: project, issues: issues })
+  }
+  catch(e) {
+    console.error(e)
+    return res.send({error: "database logical error"})
+  }
+});
   
 router.get('/api/issues/:project', async (req, res) => {
     let fields = ['issue_title', 'issue_text', 'created_by', 'assigned_to', 'status_text', 'open', 'created_on', 'updated_on'];

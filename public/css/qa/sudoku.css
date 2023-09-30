@@ -46,6 +46,10 @@ code {
     border: 1px solid;
     padding: 0.3em;
   }
+
+  hr {
+    margin: 25px;
+  }
   
   .yAxisLegend {
     margin-top: 50px;
@@ -102,3 +106,4 @@ code {
       align-self: center;
     }
   }  
+

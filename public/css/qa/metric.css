@@ -10,3 +10,15 @@ code {
 section, header {
     margin: 50px;
 }
+
+hr {
+    margin: 50px;
+}
+
+#convertField {
+    width: 200px;
+}
+
+h3 {
+    text-align: left
+}

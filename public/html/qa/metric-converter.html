@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+		<meta name="description " content="Metric/Imperial Converter Project App">
+		<meta name="author" content="Valentin Wissler">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/images/crash_ico.webp" type="image/x-icon" />
     <title>Metric/Imperial Converter</title>
-    <meta name="description" content="An example of the Free Code Camp Metric/Imperial Converter Project">
-    <link id="favicon" rel="icon" href="C:\Users\Valentin.Wissler\OneDrive - n-able\Desktop\1.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +17,7 @@
     <header>
       <h1>Metric/Imperial Converter</h1>
     </header>
-    <hr style='margin: 50px'>
+    <hr>
     <section>
       <h3>Example usage</h3>
       <code>/api/convert?input=4gal</code><br>
@@ -23,12 +27,12 @@
       <h3>Example return</h3>
       <code>{ initNum: 3.1, initUnit: 'mi', returnNum: 4.98895, returnUnit: 'km', string: '3.1 miles converts to 4.98895 kilometers' }</code>
     </section>
-    <hr style='margin: 50px'>
+    <hr>
     <section>
       <div id='testui' >
-        <h3 style="text-align: left">Front-End</h3>
+        <h3>Front-End</h3>
         <form id="convertForm" class="border">
-          <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px">
+          <input type="text" id="convertField" name="input" placeholder="3.1mi">
           <input id="convert" type="submit" value='Convert!'>
         </form>
         <p id='result'></p>
@@ -40,21 +44,6 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"
             integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
             crossorigin="anonymous"></script>
-    <script>
-      $(function() {
-        $('#convertForm').submit(function(event) {
-          event.preventDefault();
-          $.ajax({
-            url: '/projects/qa/metric-converter/api/convert',
-            type: 'get',
-            data: $('#convertForm').serialize(),
-            success: function(data) {
-              $('#result').text(data.string || data);
-              $('#jsonResult').text(JSON.stringify(data));
-            }
-          });
-        });
-      });
-   </script>
+    <script src="/js/qa/metric.js" type="text/javascript" ></script>
   </body>
 </html>

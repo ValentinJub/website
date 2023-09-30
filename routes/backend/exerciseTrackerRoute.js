@@ -5,7 +5,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 const conn = require('../../connections/con_exercise_tracker');
-const userSchema = require('../../models/backend/users')
+const userSchema = require('../../schemas/backend/users')
 
 const User = conn.model('Users', userSchema)
 
@@ -34,7 +34,7 @@ router.get("/", function (req, res) {
   });
 });
 
-var exerciseSchema = require('../../models/backend/exercises')
+var exerciseSchema = require('../../schemas/backend/exercises')
 
 
 router.post('/api/users', function(req, res) {

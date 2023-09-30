@@ -7,8 +7,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const conn = require('../../connections/con_library');
 
-const bookSchema = require('../../models/qa/book')
-const commentSchema = require('../../models/qa/comment')
+const bookSchema = require('../../schemas/qa/book')
+const commentSchema = require('../../schemas/qa/comment')
 
 const Book = conn.model('Book', bookSchema)
 const Comment = conn.model('Comment', commentSchema)

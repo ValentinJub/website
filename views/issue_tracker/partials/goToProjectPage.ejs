@@ -1,13 +1,6 @@
 <div>
   <label>Go to a project page</label>
   <input type="text" id="projectName" name="project">
-  <button onclick="redirect()">Go</button>
+  <button id="gotobtn">Go</button>
 </div>
-<script>
-  function redirect() {
-    let inputValue = document.getElementById("projectName").value;
-    let currentUrl = window.location.href;
-    let newUrl = currentUrl + "api/issues/" + inputValue;
-    window.location.href = newUrl;
-  }
-</script>
+<script src="/js/qa/issue_redirect.js" type="text/javascript" ></script>

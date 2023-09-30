@@ -14,6 +14,7 @@
   "author": "Valentin Wissler",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.1",
     "bootstrap": "^5.2.3",
     "chai": "^4.3.8",
@@ -33,6 +34,7 @@
     "mochawesome-report-generator": "^6.2.0",
     "mongoose": "^6.7.5",
     "morgan": "^1.10.0",
+    "node-fetch": "^2.7.0",
     "zombie": "^6.1.4"
   },
   "devDependencies": {
