@@ -4,6 +4,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const cors = require('cors');
 const helmet = require('helmet');
 const crypto = require('crypto');
 
@@ -34,6 +35,7 @@ const qaTranslatorRouter = require('./routes/qa/translatorRoute');
 /*~~~~~ IS routes ~~~~~*/ 
 const isStockRouter = require('./routes/is/stockRoute');
 const isMessageBoardRouter = require('./routes/is/messageRoute');
+const isShnakesoloRouter = require('./routes/is/shnakesoloRoute');
 
 
 //used to parse the raw data which contains a lot of metadata 
@@ -85,6 +87,8 @@ app.disable('x-powered-by');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(cors({origin: "*"})); //allows CORS from all origins
+
 //we set the view engine to ejs
 app.set('view engine', 'ejs');
 //we set the views directory to the views folder
@@ -135,7 +139,55 @@ app.use('/projects/qa/translator/', qaTranslatorRouter);
 /*~~~~~ IS routes ~~~~~*/ 
 app.use('/projects/is/stock-price-checker/', isStockRouter);
 app.use('/projects/is/message-board/', isMessageBoardRouter);
+app.use('/projects/is/snake-solo/', isShnakesoloRouter);
 
-app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.PORT || 3030);
+
+const io = require('socket.io')(server);
+const { createGameState, gameLoop, getUpdatedVelocity } = require('./public/js/is/shnakesolo_game.js');
+const { FRAMERATE } = require('./public/js/is/shnakesolo_constants.js');
+
+io.on('connection', (client) => {
+  console.log('client connected')
+  const state = createGameState();
+  client.on('keydown', handleKeydown);
+  client.on('newGame', handleNewGame);
+
+  function handleNewGame() {}
+
+  function handleKeydown(keyCode) {
+    try {
+      keyCode = parseInt(keyCode);
+    } catch (error) {
+      console.log(error)
+      return;
+    }
+
+    const vel = getUpdatedVelocity(keyCode);
+    
+    if(vel) {
+      // how to prevent 180 degree turns?
+      if((state.player.vel.x !== 0 && vel.x !== 0) || (state.player.vel.y !== 0 && vel.y !== 0)) return;
+      state.player.vel = vel;
+    }
+  }
+
+  startGameInterval(client, state);
+});
+
+function startGameInterval(client, state) {
+  let indexedFrameRate = FRAMERATE;
+  const intervalId = setInterval(() => {
+    
+    const winner = gameLoop(state, indexedFrameRate);
+    
+    if(!winner) {
+      client.emit('gameState', JSON.stringify(state));
+    } else {
+      client.emit('gameOver');
+      clearInterval(intervalId);
+    }
+  }, (1000 / indexedFrameRate))
+}
 
 module.exports = app;

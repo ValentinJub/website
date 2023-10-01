@@ -70,6 +70,13 @@
   min-height: 100vh; /* This ensures the container takes at least the full viewport height */
 }
 
+#content-container {
+  /* flex: 1; This pushes the footer to the bottom */
+  width: 85vw;
+  margin-left: 15vw;
+  padding: 20px;
+}
+
 .vertical-center {
   display: flex;
   justify-content: center;
